@@ -1,8 +1,12 @@
-deco_lamp = {}
+deco = {}
 
 local stand_table = { --name, material, invimg
 {'White Deco Lamp', 'white'},
-{'Red Deco Lamp', 'red'}
+{'Red Deco Lamp', 'red'},
+{'Green Deco Lamp', 'green'},
+{'Yellow Deco Lamp', 'yellow'},
+{'Orange Deco Lamp', 'orange'},
+{'Pink Deco Lamp', 'pink'},
 }
 
 for i in ipairs (stand_table) do
@@ -10,7 +14,7 @@ for i in ipairs (stand_table) do
 	local material = stand_table[i][2]
 	local invimg = stand_table[i][3]
 	
-minetest.register_node('deco_lamp:lamp_off_' ..material, {
+minetest.register_node('deco:lamp_off_' ..material, {
 	description = name,
 	drawtype = 'mesh',
 	mesh = 'deco_lamp.obj',
@@ -27,12 +31,12 @@ minetest.register_node('deco_lamp:lamp_off_' ..material, {
 		fixed = {-.35, -.5, -.35, .35, .25, .35},
 		},
 	on_rightclick = function (pos, node, puncher)
-		node.name = "deco_lamp:deco_lamp_" ..material
+		node.name = 'deco:deco_lamp_' ..material
 		minetest.set_node(pos, node)
 	end,
 })
 
-minetest.register_node('deco_lamp:deco_lamp_' ..material, {
+minetest.register_node('deco:deco_lamp_' ..material, {
 	description = name,
 	drawtype = 'mesh',
 	mesh = 'deco_lamp.obj',
@@ -41,7 +45,7 @@ minetest.register_node('deco_lamp:deco_lamp_' ..material, {
 	light_source =  14,
 	paramtype = 'light',
 	paramtype2 = 'facedir',
-	drop= 'deco_lamp:lamp_off' ..material,
+	drop= 'deco:lamp_off' ..material,
 	selection_box = {
 		type = 'fixed',
 		fixed = {-.35, -.5, -.35, .35, .25, .35}, -- Right, Bottom, Back, Left, Top, Front
@@ -51,7 +55,7 @@ minetest.register_node('deco_lamp:deco_lamp_' ..material, {
 		fixed = {-.35, -.5, -.35, .35, .25, .35}, -- Right, Bottom, Back, Left, Top, Front
 		},
 		on_rightclick = function (pos, node, puncher)
-		node.name = "deco_lamp:lamp_off_" ..material
+		node.name = 'deco:lamp_off_' ..material
 		minetest.set_node(pos, node)
 	end,
 })
