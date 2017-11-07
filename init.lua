@@ -1,6 +1,6 @@
 deco = {}
 
-local stand_table = { --name, material, invimg
+local stand_table = { --name, material
 {'White Deco Lamp', 'white'},
 {'Red Deco Lamp', 'red'},
 {'Green Deco Lamp', 'green'},
@@ -58,5 +58,37 @@ minetest.register_node('deco:deco_lamp_' ..material, {
 		node.name = 'deco:lamp_off_' ..material
 		minetest.set_node(pos, node)
 	end,
+})
+end
+
+local table_table = { --name, material
+{'Wooden Table', 'wood'},
+{'Acacia Table', 'acacia_wood'},
+{'Jungle Table', 'junglewood'},
+{'Pine Table', 'pine_wood'},
+{'Aspen Table', 'aspen_wood'}
+}
+
+for i in ipairs (table_table) do
+	local name = table_table[i][1]
+	local material = table_table[i][2]
+	local invimg = table_table[i][3]
+
+minetest.register_node('deco:table_' ..material, {
+    description = name,
+	tiles = {'default_'..material..'.png'},
+	drawtype = 'nodebox',
+	paramtype = 'light',
+	groups = {flammable=2},
+	node_box = {
+		type = 'fixed',
+		fixed = {
+			{-0.5, -0.5, -0.5, -0.3125, 0.3125, -0.3125},
+			{-0.5, -0.5, 0.3125, -0.3125, 0.3125, 0.5},
+			{0.3125, -0.5, 0.3125, 0.5, 0.3125, 0.5},
+			{0.3125, -0.5, -0.5, 0.5, 0.3125, -0.3125},
+			{-0.5, 0.3125, -0.5, 0.5, 0.5, 0.5},
+		}
+	}
 })
 end
