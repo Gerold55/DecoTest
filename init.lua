@@ -93,20 +93,21 @@ minetest.register_node('deco:table_' ..material, {
 })
 end
 
-minetest.register_node("deco:deco_painting_1", {
+minetest.register_node('deco:deco_painting_1', {
 	description= 'Painting 1',
 	tiles = {
-		"default_wood.png",
-		"default_wood.png",
-		"default_wood.png",
-		"default_wood.png",
-		"default_wood.png",
-		"painting_1.png"
+		'default_wood.png',
+		'default_wood.png',
+		'default_wood.png',
+		'default_wood.png',
+		'default_wood.png',
+		'painting_1.png'
 	},
-	drawtype = "nodebox",
-	paramtype = "light",
+	drawtype = 'nodebox',
+	paramtype = 'light',
+	groups = {cracky=2, oddly_breakably_by_hand=2},
 	node_box = {
-		type = "fixed",
+		type = 'fixed',
 		fixed = {
 			{-0.5, -0.5, 0, 0.5, 0.5, 0.0625}, -- NodeBox1
 			{-0.5, -0.5, -0.0625, -0.375, 0.5, 0}, -- NodeBox2
@@ -120,4 +121,16 @@ minetest.register_node("deco:deco_painting_1", {
 			{-0.375, -0.5, 0.3125, 0.375, -0.375, 0.375}, -- NodeBox11
 		}
 	}
+})
+
+minetest.register_node('deco:deco_teddy', {
+	description= 'Teddy Bear',
+	tiles = {
+		'teddy.png'
+	},
+	drawtype = 'mesh',
+	mesh = 'teddy.obj',
+	paramtype = 'light',
+	paramtype2 = 'facedir',
+	groups = {cracky=2, oddly_breakably_by_hand=2},
 })
